@@ -92,7 +92,7 @@ def handle_error(e):
 @app.route('/chart-image/<collection>/<view>')
 def get_chart_image(collection, view):
     labels = get_labels(request)
-    selector = request.args.get('p', 'status')
+    selector = request.args.get('p', 'job')
     elems, _ = get_stats(collection, view, labels, selector)
 
     data = {
@@ -115,7 +115,7 @@ def get_chart_image(collection, view):
 def get_chart(collection, view):
     dark_mode = 'dark' in request.args
     labels = get_labels(request)
-    selector = request.args.get('p', 'status')
+    selector = request.args.get('p', 'job')
     elems, title = get_stats(collection, view, labels, selector)
 
     return render_template(
