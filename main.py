@@ -69,7 +69,7 @@ def get_stats(collection, view, labels, prop):
             else:
                 elems[list(elems.keys())[-1]] += 1
 
-    return elems, cv.name
+    return elems, f"총 {len(rows)}명"
 
 
 def get_labels(request):
