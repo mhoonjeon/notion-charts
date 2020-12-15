@@ -11,7 +11,10 @@ g = {}
 
 width = 380
 height = 220
-default_labels = ['Not Started', 'In Progress', 'Done']
+default_labels = [
+    '판사', '검사', '변호사', '의사', '치과의사', '한의사', '5급 공무원',
+    '회계사', '변리사', '기타'
+]
 
 if 'client' not in g:
     try:
