@@ -12,10 +12,8 @@ g = {}
 width = 380
 height = 220
 default_labels = [
-    '판사', '검사', '변호사', '의사', '치과의사', '한의사', '5급 공무원',
-    '회계사', '변리사',
-    '법조인', '의료인', '기타 전문직', '사기업', '공무원', '금융', '교직',
-    '예체능', '언론인', '기타'
+    '법조인', '의료인', '기타 전문직', '사기업', '공무원', '금융인', '교직',
+    '예체능', '언론방송', '기타'
 ]
 
 if 'client' not in g:
@@ -100,7 +98,7 @@ def get_chart_image(collection, view):
     data = {
         'type': 'pie',
         'data': {
-                'labels': list(map(remove_non_ascii, elems.keys())),
+                'labels': list(elems.keys()),
                 'borderWidth': 0,
             'datasets': [{'data': list(elems.values())}]
         },
