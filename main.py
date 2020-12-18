@@ -12,6 +12,8 @@ g = {}
 width = 380
 height = 220
 default_labels = [
+    '판사', '검사', '변호사', '의사', '치과의사', '한의사', '5급 공무원',
+    '회계사', '변리사',
     '법조인', '의료인', '기타 전문직', '사기업', '공무원', '금융', '교직',
     '예체능', '언론인', '기타'
 ]
@@ -69,7 +71,7 @@ def get_stats(collection, view, labels, prop):
             else:
                 elems[list(elems.keys())[-1]] += 1
 
-    return elems, f"총 {len(rows)}명"
+    return elems, None
 
 
 def get_labels(request):
@@ -116,13 +118,12 @@ def get_chart(collection, view):
     dark_mode = 'dark' in request.args
     labels = get_labels(request)
     selector = request.args.get('p', 'job')
-    elems, title = get_stats(collection, view, labels, selector)
+    elems, _ = get_stats(collection, view, labels, selector)
 
     return render_template(
         'chart.html',
         datas=json.dumps(list(elems.items())),
         dark_mode=dark_mode,
-        title=request.args.get('title', title),
     )
 
 
